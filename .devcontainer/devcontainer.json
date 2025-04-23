@@ -2,13 +2,15 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "API Mesh Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node",
   "hostRequirements": {
     "cpus": 2,
     "memory": "8gb",
     "storage": "32gb"
   },
-  "forwardPorts": [5000],
+  "forwardPorts": [
+    5000
+  ],
   "postAttachCommand": {
     "server": "yarn start"
   },
@@ -17,11 +19,22 @@
     "5000": {
       "label": "Mesh GraphQL Server",
       "onAutoForward": "openPreview"
+    },
+    "42227": {
+      "label": "AIO Login",
+      "onAutoForward": "openPreview",
+      "protocol": "https"
     }
   },
   "customizations": {
     "codespaces": {
-      "openFiles": ["README.md", "mesh.json"]
+      "openFiles": [
+        "README.md",
+        "mesh.json"
+      ]
     }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   }
 }
